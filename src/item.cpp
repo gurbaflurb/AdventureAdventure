@@ -4,12 +4,21 @@ Item::Item() {
     Item::setDamage(0);
     Item::setDefense(0);
     Item::setSpellPower(0);
+    Item::setName("Unnamed Item");
 }
 
-Item::Item(int damage_init, int defense_init, int spellPower_init) {
+Item::Item(int damage_init, int defense_init, int spellPower_init, std::string weaponName) {
     Item::setDamage(damage_init);
     Item::setDefense(defense_init);
     Item::setSpellPower(spellPower_init);
+    Item::setName(weaponName);
+}
+
+std::string Item::getName() {
+    return name;
+}
+void Item::setName(std::string newName) {
+    name = newName;
 }
 
 int Item::getDamage() {

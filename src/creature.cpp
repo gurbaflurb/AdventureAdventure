@@ -1,5 +1,9 @@
 #include "creature.h"
 
+Creature::Creature() {
+    
+}
+
 Creature::Creature(int attack_init, int defense_init, int health_init, std::string name_init) {
     currentHealth = maxHealth;
     Creature::setMaxHealth(health_init);
@@ -46,4 +50,21 @@ std::string Creature::getName() {
 }
 void Creature::setName(std::string newName) {
     name = newName;
+}
+
+void Creature::takeDamage(int damage) {
+    if((currentHealth - damage) <= 0) {
+        currentHealth = 0;
+    }
+    else {
+        currentHealth -= damage;
+    }
+}
+void Creature::heal(int heal) {
+    if((currentHealth+heal) >= maxHealth) {
+        currentHealth = maxHealth;
+    }
+    else {
+        currentHealth += heal;
+    }
 }

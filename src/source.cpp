@@ -1,7 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
-#include <iomanip>
+#include <fstream>
 #include "creature.h"
 #include "item.h"
 #include "player.h"
@@ -11,7 +11,17 @@ using namespace std;
 
 int main()
 {
-	Player userPlayer = startGame::startGame();
+
+	Player userPlayer = gameTools::startGame();
+	try
+	{
+		gameTools::loadMap();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 
 	return 0;
 }

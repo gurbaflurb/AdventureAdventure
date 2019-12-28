@@ -1,16 +1,17 @@
 #ifndef PLAYER_H
 #define PLAYER_H
+
 #include "creature.h"
 #include "item.h"
 #include <string>
 
 class Player : public Creature {
     private:
-    Item currentItem();
+    Item mainHand;
 
     public:
 
-    Player(int attack_init, int defense_init, int health_init, std::string name_init);
+    Player(int, int, int, std::string, Item);
     int getCurrentHealth();
     void setCurrentHealth(int);
 
@@ -23,9 +24,14 @@ class Player : public Creature {
     int getAttack();
     void setAttack(int);
 
+    virtual void takeDamage(int);
+    virtual void heal(int);
+
     std::string getName();
     void setName(std::string);
 
+    Item getMainHand();
+    void setMainHand(Item);
 };
 
 #endif

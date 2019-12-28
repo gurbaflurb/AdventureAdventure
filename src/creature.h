@@ -5,12 +5,11 @@
 
 class Creature {
     private:
-
     int maxHealth = 100, defense, attack, currentHealth;
     std::string name;
     
     public:
-
+    Creature();
     Creature(int, int, int, std::string);
 
     virtual int getCurrentHealth();
@@ -27,6 +26,9 @@ class Creature {
 
     virtual std::string getName();
     virtual void setName(std::string);
+
+    virtual void takeDamage(int);
+    virtual void heal(int);
 
 };
 
